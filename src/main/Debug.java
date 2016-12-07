@@ -5,7 +5,7 @@ public class Debug {
 	private String classname;
 	
 	public Debug(String _classname){
-		this.debug = true;
+		this.debug = false;
 		this.classname = _classname;
 	}
 	
