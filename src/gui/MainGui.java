@@ -195,7 +195,6 @@ public class MainGui {
 
 					@Override
 					protected Void doInBackground() throws Exception {
-						// TODO Auto-generated method stub
 						lblShowTitle.setText(function.getTitle(albumID));
 						lblShowPictures.setText(function.getPictureCount(albumID));
 						
@@ -206,10 +205,14 @@ public class MainGui {
 						progressBar.setString("Generating Documents");
 								
 						function.generator(albumID, pdfBool, cbzBool);
-						progressBar.setValue(90);
-						progressBar.setString("Removing Temp");
 						
-						function.removeTempFolder(albumID);
+						if(pdfBool || cbzBool){
+							progressBar.setValue(90);
+							progressBar.setString("Removing Temp");
+							
+							function.removeTempFolder(albumID);
+						}
+						
 						progressBar.setValue(100);
 						progressBar.setString("Finished");
 						return null;
