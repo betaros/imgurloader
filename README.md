@@ -1,9 +1,11 @@
 # imgurloader
-Downloads images from Imgur and converts them to PDF or CBZ
+Downloads images from Imgur and converts them to PDF or CBZ.
+
+Just run Imgurloader.jar with a doubleclick or from Commandline: java -jar Imgurloader.jar 
 
 ## Requirements
 
-- [Java](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
+- [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 
 ## Toolkits
 

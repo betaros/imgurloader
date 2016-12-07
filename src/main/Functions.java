@@ -40,10 +40,15 @@ public class Functions {
 	 */
 	public void download(String albumID){
 		debug.DebugMessage(albumID);
+		String dash = "/";
+		
+		if(debug.getOS().indexOf("win") >= 0){
+			dash = "\\";
+		}
 		
 		StringBuilder sbFullpath = new StringBuilder();
 		sbFullpath.append(this.path);
-		sbFullpath.append("\\");
+		sbFullpath.append(dash);
 		sbFullpath.append(albumID);
 		this.fullpath = sbFullpath.toString();
 		
@@ -65,7 +70,9 @@ public class Functions {
 				}
 				number.append(String.valueOf(counter));
 				String filetype = i.link.substring(i.link.lastIndexOf(".") + 1).trim();
-				File f = new File(this.fullpath + "\\" + number.toString() + "." + filetype);
+				
+				
+				File f = new File(this.fullpath + dash + number.toString() + "." + filetype);
 				URL url;
 				try {
 					url = new URL(i.link);

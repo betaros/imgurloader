@@ -189,8 +189,17 @@ public class CredentialsDialog extends JDialog {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(System.getProperty("user.dir") + "\\credentials.xml"));
-
+			
+			String dash = "/";
+			
+			if(debug.getOS().indexOf("win") >= 0){
+				dash = "\\";
+			}
+			
+			String path = System.getProperty("user.dir") + dash + "credentials.xml";
+			
+			StreamResult result = new StreamResult(new File(path));
+			debug.DebugMessage("Credentialpath:			" + path);
 			// Output to console for testing
 			// StreamResult result = new StreamResult(System.out);
 

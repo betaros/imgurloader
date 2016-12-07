@@ -47,7 +47,13 @@ public class Main {
 		}
 
 		try {
-			String path = System.getProperty("user.dir") + "\\credentials.xml";
+			String dash = "/";
+			
+			if(debug.getOS().indexOf("win") >= 0){
+				dash = "\\";
+			}
+			
+			String path = System.getProperty("user.dir") + dash + "credentials.xml";
 			debug.DebugMessage("XML Path:		" + path);
 			File fXmlFile = new File(path);
 			if(!fXmlFile.exists()){
