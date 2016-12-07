@@ -199,6 +199,7 @@ public class MainGui {
 						lblShowPictures.setText(function.getPictureCount(albumID));
 						
 						progressBar.setString("Downloading files");
+						progressBar.setValue(10);
 						function.download(albumID);
 						
 						progressBar.setValue(30);
