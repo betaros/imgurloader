@@ -1,0 +1,6 @@
+{
+  "name": "Imgurloader",
+  "tagline": "Downloads images from Imgur and converts them to PDF or CBZ",
+  "body": "## Welcome to Imgurloader\r\nImgurloader downloads images from Imgur albums and creates a PDF and/or a CBZ file. If none is selected it downloads the images in a folder for you.\r\n\r\n### Usage\r\nFor using it you need an ID and a secret from (Imgur)[https://api.imgur.com/oauth2/addclient]. When you first start the tool it will ask for it and creates an XML file with the credentials.\r\n\r\nThe files are downloaded to the folder, where the JAR was executed.\r\n\r\n### Author\r\nThis handy tool was developed by betaros.\r\n\r\n### Support or Contact\r\nHaving trouble with Imgurloader? Just write an issue :)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
