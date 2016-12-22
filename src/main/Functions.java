@@ -46,7 +46,7 @@ public class Functions {
 			dash = "\\";
 		}
 		
-		StringBuilder sbFullpath = new StringBuilder();
+		StringBuilder sbFullpath = new StringBuilder();		
 		sbFullpath.append(this.path);
 		sbFullpath.append(dash);
 		sbFullpath.append(albumID);
@@ -88,8 +88,13 @@ public class Functions {
 	}
 
 	public void generator(String albumID, boolean pdfbool, boolean cbzbool){
-		Thread pdf = new Thread(new PDFcreator(fullpath, client.getAlbumDetails(albumID).data.title + ".pdf"));
-		Thread cbz = new Thread(new CBZcreator(fullpath, client.getAlbumDetails(albumID).data.title + ".cbz"));
+		String title = client.getAlbumDetails(albumID).data.title.replaceAll("[^A-Za-z0-9 ]", "");
+		
+		debug.DebugMessage("Title old: 			" + client.getAlbumDetails(albumID).data.title);
+		debug.DebugMessage("Title new: 			" + title);
+		
+		Thread pdf = new Thread(new PDFcreator(fullpath, title + ".pdf"));
+		Thread cbz = new Thread(new CBZcreator(fullpath, title + ".cbz"));
 		
 		if(pdfbool){
 			pdf.run();
@@ -157,6 +162,6 @@ public class Functions {
 	 * @return
 	 */
 	public String getPictureCount(String albumID){
-		return String.valueOf(client.getAlbumDetails(albumID).data.imagesCount);
+		return String.valueOf(client.getAlbumDetails(albumID).data.images.size());
 	}
 }
