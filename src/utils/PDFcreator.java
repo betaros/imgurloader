@@ -33,18 +33,19 @@ public class PDFcreator implements Runnable
 		this.debug = new Debug(this.getClass().getName());
 	}
 	
-	//public void start(){
-	//	generateFileList(new File(SOURCE_FOLDER));
-	//	generatePDF(OUTPUT_PDF_FILE);
-	//}
-	
 	private void generatePDF(String outputfile){
 		try{
 			debug.DebugMessage("Output to PDF : " + outputfile);
 			
+			String dash = "/";
+			
+			if(debug.getOS().indexOf("win") >= 0){
+				dash = "\\";
+			}
+			
 			PDDocument document = new PDDocument();
 			for(String file : this.fileList){
-				String fullpath = SOURCE_FOLDER + "\\" + file;
+				String fullpath = SOURCE_FOLDER + dash + file;
 				
 				debug.DebugMessage("File Added : " + fullpath);
 				InputStream in = new FileInputStream(fullpath);

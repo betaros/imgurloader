@@ -33,7 +33,7 @@ public class Functions {
 		this.path = System.getProperty("user.dir");
 		debug.DebugMessage("Current Path:		" + this.path);
 	}
-
+	
 	/**
 	 * 
 	 * @param albumID

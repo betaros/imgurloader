@@ -31,19 +31,19 @@ public class Main {
 		} 
 		catch (UnsupportedLookAndFeelException e) {
 			// handle exception
-			debug.DebugMessage(e.getMessage());
+			debug.DebugMessage("Exception:	" + "UnsupportedLookAndFeelException");
 		}
 		catch (ClassNotFoundException e) {
 			// handle exception
-			debug.DebugMessage(e.getMessage());
+			debug.DebugMessage("Exception:	" + "ClassNotFoundException");
 		}
 		catch (InstantiationException e) {
 			// handle exception
-			debug.DebugMessage(e.getMessage());
+			debug.DebugMessage("Exception:	" + "InstantiationException");
 		}
 		catch (IllegalAccessException e) {
 			// handle exception
-			debug.DebugMessage(e.getMessage());
+			debug.DebugMessage("Exception:	" + "IllegalAccessException");
 		}
 
 		try {
@@ -53,7 +53,12 @@ public class Main {
 				dash = "\\";
 			}
 			
-			String path = System.getProperty("user.dir") + dash + "credentials.xml";
+			StringBuilder sbPath = new StringBuilder();
+			sbPath.append(System.getProperty("user.dir"));
+			sbPath.append(dash);
+			sbPath.append("credentials.xml");
+			
+			String path = sbPath.toString();
 			debug.DebugMessage("XML Path:		" + path);
 			File fXmlFile = new File(path);
 			if(!fXmlFile.exists()){
@@ -69,7 +74,7 @@ public class Main {
 			}
 
 		} catch (Exception e) {
-			debug.DebugMessage(e.getMessage());
+			debug.DebugMessage("Exception:	" + "Function Exception");
 		}
 
 	}
@@ -111,11 +116,11 @@ public class Main {
 				});
 			}
 		} catch (ParserConfigurationException e1) {
-			debug.DebugMessage(e1.getMessage());
+			debug.DebugMessage("Exception:	" + "ParserConfigurationException");
 		} catch (SAXException e1) {
-			debug.DebugMessage(e1.getMessage());
+			debug.DebugMessage("Exception:	" + "SAXException");
 		} catch (IOException e1) {
-			debug.DebugMessage(e1.getMessage());
+			debug.DebugMessage("Exception:	" + "IOException");
 		}
 		
 	}

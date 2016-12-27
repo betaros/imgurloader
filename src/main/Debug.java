@@ -6,7 +6,7 @@ public class Debug {
 	private String os;
 	
 	public Debug(String _classname){
-		this.debug = true;
+		this.debug = false;
 		this.classname = _classname;
 		this.os = System.getProperty("os.name").toLowerCase();
 	}

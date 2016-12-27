@@ -31,11 +31,6 @@ public class CBZcreator implements Runnable
 		fileList = new ArrayList<String>();
 		this.debug = new Debug(this.getClass().getName());
 	}
-
-	//public void start(){
-	//	generateFileList(new File(SOURCE_FOLDER));
-	//	zipIt(OUTPUT_ZIP_FILE);
-	//}
 	
 	/**
 	 * Zip it
@@ -46,7 +41,12 @@ public class CBZcreator implements Runnable
 		byte[] buffer = new byte[1024];
 
 		try{
-
+			String dash = "/";
+			
+			if(debug.getOS().indexOf("win") >= 0){
+				dash = "\\";
+			}
+			
 			FileOutputStream fos = new FileOutputStream(zipFile);
 			ZipOutputStream zos = new ZipOutputStream(fos);
 
@@ -59,7 +59,7 @@ public class CBZcreator implements Runnable
 				zos.putNextEntry(ze);
 
 				FileInputStream in = 
-						new FileInputStream(SOURCE_FOLDER + File.separator + file);
+						new FileInputStream(SOURCE_FOLDER + dash + file);
 
 				int len;
 				while ((len = in.read(buffer)) > 0) {
