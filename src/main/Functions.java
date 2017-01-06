@@ -88,10 +88,14 @@ public class Functions {
 	}
 
 	public void generator(String albumID, boolean pdfbool, boolean cbzbool){
-		String title = client.getAlbumDetails(albumID).data.title.replaceAll("[^A-Za-z0-9 ]", "");
+		String title = client.getAlbumDetails(albumID).data.title;
+		if(title == null){
+			title = "no_title_found";
+		} else {
+			title = title.replaceAll("[^A-Za-z0-9 ]", "");
+		}
 		
-		debug.DebugMessage("Title old: 			" + client.getAlbumDetails(albumID).data.title);
-		debug.DebugMessage("Title new: 			" + title);
+		debug.DebugMessage("Title:	 			" + title);
 		
 		Thread pdf = new Thread(new PDFcreator(fullpath, title + ".pdf"));
 		Thread cbz = new Thread(new CBZcreator(fullpath, title + ".cbz"));
@@ -153,7 +157,11 @@ public class Functions {
 	 * @return
 	 */
 	public String getTitle(String albumID){
-		return client.getAlbumDetails(albumID).data.title;
+		String title = client.getAlbumDetails(albumID).data.title;
+		if(title == null){
+			title = "no_title_found";
+		}
+		return title; 
 	}
 	
 	/**
